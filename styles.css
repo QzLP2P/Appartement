@@ -1,3 +1,64 @@
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+header h1 .price {
+    color: #007BFF; /* Couleur bleue pour le prix */
+    font-weight: bold;
+}
+
+header .description {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px; /* Taille du chevron */
+    color: white; /* Couleur du chevron */
+    cursor: pointer;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    border-radius: 50%; /* Forme circulaire */
+    width: 50px; /* Largeur du cercle */
+    height: 50px; /* Hauteur du cercle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.arrow:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.8); /* Fond plus foncé au survol */
+}
+
+.arrow.left {
+    left: 20px;
+}
+
+.arrow.right {
+    right: 20px;
+}
+
+
 /* Styles de base */
 body {
     font-family: Arial, sans-serif;

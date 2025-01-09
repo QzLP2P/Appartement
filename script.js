@@ -77,3 +77,30 @@ nextButton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % totalImages;
     showImage(currentIndex);
 });
+
+// Gestion du scroll mobile (glisser pour changer d'image)
+let touchStartX = 0;
+let touchEndX = 0;
+
+gallery.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+});
+
+gallery.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    handleSwipe();
+});
+
+function handleSwipe() {
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (swipeDistance > 50) {
+        // Glisser vers la droite : image précédente
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    } else if (swipeDistance < -50) {
+        // Glisser vers la gauche : image suivante
+        currentIndex = (currentIndex + 1) % totalImages;
+    }
+
+    showImage(currentIndex);
+}
