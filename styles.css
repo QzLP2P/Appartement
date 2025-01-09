@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    background-color: #f4f4f4; /* Couleur de fond de la page */
 }
 
 /* Conteneur de la galerie */
@@ -23,9 +24,10 @@ body {
     width: 200px; /* Largeur fixe pour chaque image */
     height: 200px; /* Hauteur fixe pour chaque image */
     overflow: hidden; /* Cache les parties de l'image qui dépassent */
-    position: relative; /* Pour positionner le filigrane */
-    border-radius: 8px; /* Optionnel : coins arrondis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionnel : ombre */
+    position: relative; /* Pour positionner le filigrane et le numéro */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    background-color: #fff; /* Fond blanc pour les conteneurs */
 }
 
 /* Styles pour les images */
@@ -36,54 +38,9 @@ body {
     display: block;
 }
 
-/* Affiche uniquement l'image active */
-.gallery-image.active {
-    display: block;
-}
-
-/* Styles pour les boutons de navigation */
-button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Media Queries pour les écrans plus petits */
-@media (max-width: 768px) {
-    .gallery {
-        padding: 10px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .gallery {
-        padding: 5px;
-    }
-
-    button {
-        font-size: 12px;
-        padding: 6px 12px;
-    }
-}
-
-/* Styles pour le filigrane */
+/* Filigrane centré */
 .image-container::after {
-    content: "Contact 06 58 31 81 41"; /* Texte du filigrane */
+    content: "06 58 31 81 41"; /* Texte du filigrane */
     position: absolute;
     top: 50%; /* Positionne le texte au milieu verticalement */
     left: 50%; /* Positionne le texte au milieu horizontalement */
@@ -95,4 +52,46 @@ button:hover {
     opacity: 0.7; /* Transparence du filigrane */
     pointer-events: none; /* Permet de cliquer à travers le filigrane */
     white-space: nowrap; /* Empêche le texte de passer à la ligne */
+}
+
+/* Numéro d'image en bas à droite */
+.image-container::before {
+    content: attr(data-index) " / " attr(data-total); /* Affiche le numéro d'image et le total */
+    position: absolute;
+    bottom: 10px; /* Position en bas */
+    right: 10px; /* Position à droite */
+    color: white; /* Couleur du texte */
+    font-size: 14px; /* Taille de la police (plus petite que le filigrane) */
+    font-weight: bold; /* Police en gras */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Ombre pour améliorer la lisibilité */
+    opacity: 0.7; /* Transparence du texte */
+    pointer-events: none; /* Permet de cliquer à travers le texte */
+}
+
+/* Styles pour les boutons de navigation */
+.controls {
+    margin-top: 20px; /* Espace au-dessus des boutons */
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espace entre les boutons */
+}
+
+button {
+    padding: 10px 20px; /* Taille du bouton */
+    font-size: 16px; /* Taille de la police */
+    font-weight: bold; /* Police en gras */
+    color: white; /* Couleur du texte */
+    background-color: #007BFF; /* Couleur de fond */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: background-color 0.3s ease; /* Transition fluide */
+}
+
+button:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+}
+
+button:active {
+    background-color: #004080; /* Couleur de fond au clic */
 }
