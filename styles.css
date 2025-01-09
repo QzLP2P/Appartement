@@ -26,6 +26,7 @@ header .description {
     text-align: left;
 }
 
+/* Styles pour les flèches de navigation */
 .arrow {
     position: absolute;
     top: 50%;
@@ -43,6 +44,7 @@ header .description {
     justify-content: center;
     opacity: 0.7;
     transition: opacity 0.3s ease, background-color 0.3s ease;
+    z-index: 10; /* Assure que les flèches sont au-dessus de l'image */
 }
 
 .arrow:hover {
@@ -51,12 +53,13 @@ header .description {
 }
 
 .arrow.left {
-    left: 20px;
+    left: 10px; /* Position à gauche de la galerie */
 }
 
 .arrow.right {
-    right: 20px;
+    right: 10px; /* Position à droite de la galerie */
 }
+
 
 
 /* Styles de base */
@@ -70,6 +73,7 @@ body {
 
 /* Conteneur de la galerie */
 .gallery {
+    position: relative; /* Permet de positionner les flèches par rapport à la galerie */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
