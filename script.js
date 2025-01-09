@@ -74,9 +74,6 @@ for (let i = 0; i < totalImages; i++) {
 const containers = document.querySelectorAll('.image-container');
 containers[currentIndex].classList.add('active');
 
-// Gestion de la navigation
-const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next');
 
 function showImage(index) {
     // Masquer toutes les images
@@ -88,15 +85,6 @@ function showImage(index) {
     containers[index].classList.add('active');
 }
 
-prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-    showImage(currentIndex);
-});
-
-nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalImages;
-    showImage(currentIndex);
-});
 
 // Gestion du scroll mobile (glisser pour changer d'image)
 let touchStartX = 0;
