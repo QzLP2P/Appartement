@@ -53,14 +53,12 @@ header .description {
 }
 
 .arrow.left {
-    left: 10px; /* Position à gauche de la galerie */
+    left: -60px; /* Position à gauche de l'image */
 }
 
 .arrow.right {
-    right: 10px; /* Position à droite de la galerie */
+    right: -60px; /* Position à droite de l'image */
 }
-
-
 
 /* Styles de base */
 body {
@@ -71,7 +69,6 @@ body {
     background-color: #f4f4f4; /* Couleur de fond de la page */
 }
 
-/* Conteneur de la galerie */
 .gallery {
     position: relative; /* Permet de positionner les flèches par rapport à la galerie */
     display: flex;
@@ -86,10 +83,10 @@ body {
 
 /* Conteneur pour chaque image */
 .image-container {
-    width: 90vw; /* Largeur fixe pour chaque image */
-    height: 90vh; /* Hauteur fixe pour chaque image */
+    position: relative; /* Permet de positionner les flèches par rapport à l'image */
+    width: 90vw; /* Largeur de 80% de la largeur de la vue */
+    height: 80vh; /* Hauteur de 80% de la hauteur de la vue */
     overflow: hidden; /* Cache les parties de l'image qui dépassent */
-    position: relative; /* Pour positionner le filigrane et le numéro */
     border-radius: 8px; /* Coins arrondis */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
     background-color: #fff; /* Fond blanc pour les conteneurs */

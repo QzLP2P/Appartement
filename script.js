@@ -44,8 +44,28 @@ for (let i = 0; i < totalImages; i++) {
     img.src = `images/photo${i}.jpg`; // Chemin vers les images
     img.alt = `Photo ${i + 1}`;
     img.classList.add('gallery-image');
-   
 
+     // Ajouter les flèches de navigation
+     const arrowLeft = document.createElement('div');
+     arrowLeft.classList.add('arrow', 'left');
+     arrowLeft.innerHTML = '&#10094;';
+     arrowLeft.addEventListener('click', () => {
+         currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+         showImage(currentIndex);
+     });
+ 
+     const arrowRight = document.createElement('div');
+     arrowRight.classList.add('arrow', 'right');
+     arrowRight.innerHTML = '&#10095;';
+     arrowRight.addEventListener('click', () => {
+         currentIndex = (currentIndex + 1) % totalImages;
+         showImage(currentIndex);
+     });
+
+
+   
+    container.appendChild(arrowLeft);
+    container.appendChild(arrowRight);
     container.appendChild(img);
     gallery.appendChild(container);
 }
