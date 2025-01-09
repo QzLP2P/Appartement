@@ -28,6 +28,12 @@ body {
     border-radius: 8px; /* Coins arrondis */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
     background-color: #fff; /* Fond blanc pour les conteneurs */
+    display: none; /* Masquer tous les conteneurs par défaut */
+}
+
+/* Afficher uniquement le conteneur actif */
+.image-container.active {
+    display: block;
 }
 
 /* Styles pour les images */
@@ -40,7 +46,7 @@ body {
 
 /* Filigrane centré */
 .image-container::after {
-    content: "06 58 31 81 41"; /* Texte du filigrane */
+    content: "Contact 06 58 31 81 41"; /* Texte du filigrane */
     position: absolute;
     top: 50%; /* Positionne le texte au milieu verticalement */
     left: 50%; /* Positionne le texte au milieu horizontalement */
@@ -66,20 +72,6 @@ body {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Ombre pour améliorer la lisibilité */
     opacity: 0.7; /* Transparence du texte */
     pointer-events: none; /* Permet de cliquer à travers le texte */
-}
-
-/* Styles pour le texte en filigrane (description) */
-.description {
-    position: absolute;
-    top: 10px; /* Position en haut */
-    left: 10px; /* Position à gauche */
-    color: white; /* Couleur du texte */
-    font-size: 14px; /* Taille de la police */
-    font-weight: bold; /* Police en gras */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Ombre pour améliorer la lisibilité */
-    opacity: 0.7; /* Transparence du texte */
-    pointer-events: none; /* Permet de cliquer à travers le texte */
-    display: none; /* Masqué par défaut */
 }
 
 /* Styles pour les boutons de navigation */

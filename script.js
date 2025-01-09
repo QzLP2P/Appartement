@@ -44,9 +44,6 @@ for (let i = 0; i < totalImages; i++) {
     img.alt = `Photo ${i + 1}`;
     img.classList.add('gallery-image');
 
-    // Masquer toutes les images par défaut
-    img.style.display = 'none';
-
     // Ajouter un élément pour le texte en filigrane (description)
     const description = document.createElement('div');
     description.classList.add('description');
@@ -58,27 +55,21 @@ for (let i = 0; i < totalImages; i++) {
 }
 
 // Afficher la première image au chargement de la page
-const images = document.querySelectorAll('.gallery-image');
-const descriptionsElements = document.querySelectorAll('.description');
-images[currentIndex].style.display = 'block';
-descriptionsElements[currentIndex].style.display = 'block';
+const containers = document.querySelectorAll('.image-container');
+containers[currentIndex].classList.add('active');
 
 // Gestion de la navigation
 const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
 
 function showImage(index) {
-    // Masquer toutes les images et descriptions
-    images.forEach(image => {
-        image.style.display = 'none';
-    });
-    descriptionsElements.forEach(desc => {
-        desc.style.display = 'none';
+    // Masquer toutes les images
+    containers.forEach(container => {
+        container.classList.remove('active');
     });
 
-    // Afficher l'image active et sa description
-    images[index].style.display = 'block';
-    descriptionsElements[index].style.display = 'block';
+    // Afficher l'image active
+    containers[index].classList.add('active');
 }
 
 prevButton.addEventListener('click', () => {
