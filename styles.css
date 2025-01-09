@@ -1,27 +1,73 @@
+/* Styles de base */
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
 
+/* Conteneur de la galerie */
 .gallery {
     display: flex;
+    flex-wrap: wrap; /* Permet aux images de passer à la ligne */
     justify-content: center;
-    align-items: center;
-    margin: 20px 0;
+    gap: 10px; /* Espace entre les images */
+    max-width: 1200px; /* Largeur maximale de la galerie */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+/* Styles pour les images */
 .gallery-image {
-    max-width: 100%;
-    height: auto;
-    display: none;
+    max-width: 100%; /* L'image ne dépasse pas la largeur de son conteneur */
+    height: auto; /* Maintient le ratio d'aspect */
+    display: none; /* Cache toutes les images par défaut */
+    border-radius: 8px; /* Optionnel : Ajoute des coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionnel : Ajoute une ombre */
 }
 
+/* Affiche uniquement l'image active */
 .gallery-image.active {
     display: block;
 }
 
+/* Styles pour les boutons de navigation */
 button {
     margin: 10px;
     padding: 10px 20px;
     font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries pour les écrans plus petits */
+@media (max-width: 768px) {
+    .gallery {
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery {
+        padding: 5px;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
 }
