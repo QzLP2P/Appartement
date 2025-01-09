@@ -36,7 +36,7 @@ for (let i = 0; i < totalImages; i++) {
     container.classList.add('image-container');
 
     // Ajouter les attributs pour le numéro d'image
-    container.setAttribute('data-index', descriptions[i] + " : " i + 1); // Numéro de l'image (commence à 1)
+    container.setAttribute('data-index', i + 1); // Numéro de l'image (commence à 1)
     container.setAttribute('data-total', totalImages); // Nombre total d'images
     container.setAttribute('data-description', descriptions[i]);
 
