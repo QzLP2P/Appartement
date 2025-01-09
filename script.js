@@ -36,19 +36,15 @@ for (let i = 0; i < totalImages; i++) {
     container.classList.add('image-container');
 
     // Ajouter les attributs pour le numéro d'image
-    container.setAttribute('data-index', i + 1); // Numéro de l'image (commence à 1)
+    container.setAttribute('data-index', descriptions[i] + " : " i + 1); // Numéro de l'image (commence à 1)
     container.setAttribute('data-total', totalImages); // Nombre total d'images
+    container.setAttribute('data-description', descriptions[i]);
 
     const img = document.createElement('img');
     img.src = `images/photo${i}.jpg`; // Chemin vers les images
     img.alt = `Photo ${i + 1}`;
     img.classList.add('gallery-image');
-
-    // Ajouter un élément pour le texte en filigrane (description)
-    const description = document.createElement('div');
-    description.classList.add('description');
-    description.textContent = descriptions[i]; // Texte correspondant à l'image
-    container.appendChild(description);
+   
 
     container.appendChild(img);
     gallery.appendChild(container);

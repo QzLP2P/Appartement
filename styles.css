@@ -21,8 +21,8 @@ body {
 
 /* Conteneur pour chaque image */
 .image-container {
-    width: 200px; /* Largeur fixe pour chaque image */
-    height: 200px; /* Hauteur fixe pour chaque image */
+    width: 90vw; /* Largeur fixe pour chaque image */
+    height: 90vh; /* Hauteur fixe pour chaque image */
     overflow: hidden; /* Cache les parties de l'image qui dépassent */
     position: relative; /* Pour positionner le filigrane et le numéro */
     border-radius: 8px; /* Coins arrondis */
@@ -40,19 +40,19 @@ body {
 .gallery-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Remplit le conteneur sans déformer l'image */
+    object-fit: contain; /* Remplit le conteneur sans déformer l'image */
     display: block;
 }
 
 /* Filigrane centré */
 .image-container::after {
-    content: "Contact 06 58 31 81 41"; /* Texte du filigrane */
+    content: "06 58 31 81 41"; /* Texte du filigrane */
     position: absolute;
     top: 50%; /* Positionne le texte au milieu verticalement */
     left: 50%; /* Positionne le texte au milieu horizontalement */
     transform: translate(-50%, -50%); /* Centre parfaitement le texte */
     color: white; /* Couleur du texte */
-    font-size: 24px; /* Taille de la police */
+    font-size: 3rem; /* Taille de la police */
     font-weight: bold; /* Police en gras */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombre pour améliorer la lisibilité */
     opacity: 0.7; /* Transparence du filigrane */
@@ -62,13 +62,12 @@ body {
 
 /* Numéro d'image en bas à droite */
 .image-container::before {
-    content: attr(data-index) " / " attr(data-total); /* Affiche le numéro d'image et le total */
+    content: attr(data-description) " :" attr(data-index) " / " attr(data-total); /* Affiche le numéro d'image et le total */
     position: absolute;
     bottom: 10px; /* Position en bas */
     right: 10px; /* Position à droite */
-    color: white; /* Couleur du texte */
-    font-size: 14px; /* Taille de la police (plus petite que le filigrane) */
-    font-weight: bold; /* Police en gras */
+    color: #2da937; /* Couleur du texte */
+    font-size: 1.5rem; /* Taille de la police (plus petite que le filigrane) */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Ombre pour améliorer la lisibilité */
     opacity: 0.7; /* Transparence du texte */
     pointer-events: none; /* Permet de cliquer à travers le texte */
