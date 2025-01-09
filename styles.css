@@ -68,6 +68,20 @@ body {
     pointer-events: none; /* Permet de cliquer à travers le texte */
 }
 
+/* Styles pour le texte en filigrane (description) */
+.description {
+    position: absolute;
+    top: 10px; /* Position en haut */
+    left: 10px; /* Position à gauche */
+    color: white; /* Couleur du texte */
+    font-size: 14px; /* Taille de la police */
+    font-weight: bold; /* Police en gras */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Ombre pour améliorer la lisibilité */
+    opacity: 0.7; /* Transparence du texte */
+    pointer-events: none; /* Permet de cliquer à travers le texte */
+    display: none; /* Masqué par défaut */
+}
+
 /* Styles pour les boutons de navigation */
 .controls {
     margin-top: 20px; /* Espace au-dessus des boutons */
