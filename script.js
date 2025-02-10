@@ -4,6 +4,7 @@ let currentIndex = 0; // Index de l'image actuellement affichée
 
 // Tableau de correspondance entre les index des images et leurs descriptions
 const descriptions = [
+    "Plan",         // photo-1 
     "Extérieur",    // photo0
     "Entrée",       // photo1
     "Entrée",       // photo2
@@ -31,7 +32,7 @@ const descriptions = [
 ];
 
 // Générer les images de photo0.jpg à photo23.jpg
-for (let i = 0; i < totalImages; i++) {
+for (let i = -1; i < totalImages; i++) {
     const container = document.createElement('div');
     container.classList.add('image-container');
 
