@@ -1,5 +1,5 @@
 const gallery = document.getElementById('gallery');
-const totalImages = 24; // Nombre total d'images
+const totalImages = 25; // Nombre total d'images (photo-1 incluse)
 let currentIndex = 0; // Index de l'image actuellement affichée
 
 // Tableau de correspondance entre les index des images et leurs descriptions
@@ -31,50 +31,53 @@ const descriptions = [
     "Cuisine"       // photo23
 ];
 
-// Générer les images de photo0.jpg à photo23.jpg
-for (let i = -1; i < totalImages; i++) {
+// Générer les images de photo-1.jpg à photo23.jpg
+for (let i = -1; i < totalImages - 1; i++) {
     const container = document.createElement('div');
     container.classList.add('image-container');
 
+    // Calculer les indices de description et d'image
+    const imageIndex = i + 1;
+    const imgSrcIndex = i === -1 ? '-1' : i;
+    const descriptionIndex = i + 1;
+
     // Ajouter les attributs pour le numéro d'image
-    container.setAttribute('data-index', i + 1); // Numéro de l'image (commence à 1)
-    container.setAttribute('data-total', totalImages); // Nombre total d'images
-    container.setAttribute('data-description', descriptions[i]);
+    container.setAttribute('data-index', imageIndex);
+    container.setAttribute('data-total', totalImages);
+    container.setAttribute('data-description', descriptions[descriptionIndex]);
 
     const img = document.createElement('img');
-    img.src = `images/photo${i}.jpg`; // Chemin vers les images
-    img.alt = `Photo ${i + 1}`;
+    img.src = `images/photo${imgSrcIndex}.jpg`; // Chemin vers les images
+    img.alt = `Photo ${imageIndex}`;
     img.classList.add('gallery-image');
 
-     // Ajouter les flèches de navigation
-     const arrowLeft = document.createElement('div');
-     arrowLeft.classList.add('arrow', 'left');
-     arrowLeft.innerHTML = '&#10094;';
-     arrowLeft.addEventListener('click', () => {
-         currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-         showImage(currentIndex);
-     });
- 
-     const arrowRight = document.createElement('div');
-     arrowRight.classList.add('arrow', 'right');
-     arrowRight.innerHTML = '&#10095;';
-     arrowRight.addEventListener('click', () => {
-         currentIndex = (currentIndex + 1) % totalImages;
-         showImage(currentIndex);
-     });
+    container.appendChild(img);
 
+    // Ajouter les flèches de navigation
+    const arrowLeft = document.createElement('div');
+    arrowLeft.classList.add('arrow', 'left');
+    arrowLeft.innerHTML = '&#10094;';
+    arrowLeft.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        showImage(currentIndex);
+    });
 
-   
+    const arrowRight = document.createElement('div');
+    arrowRight.classList.add('arrow', 'right');
+    arrowRight.innerHTML = '&#10095;';
+    arrowRight.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalImages;
+        showImage(currentIndex);
+    });
+
     container.appendChild(arrowLeft);
     container.appendChild(arrowRight);
-    container.appendChild(img);
     gallery.appendChild(container);
 }
 
 // Afficher la première image au chargement de la page
 const containers = document.querySelectorAll('.image-container');
 containers[currentIndex].classList.add('active');
-
 
 function showImage(index) {
     // Masquer toutes les images
@@ -85,7 +88,6 @@ function showImage(index) {
     // Afficher l'image active
     containers[index].classList.add('active');
 }
-
 
 // Gestion du scroll mobile (glisser pour changer d'image)
 let touchStartX = 0;
